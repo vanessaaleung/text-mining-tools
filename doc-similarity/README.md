@@ -5,6 +5,11 @@ _Find the path similarity between two documents_
 
 - [Jupyter Notebook](https://github.com/vanessaaleung/text-mining-tools/blob/main/doc-similarity/Document_Similarity.ipynb)
 
+## Path-based Similarity_
+_Two concepts (senses/synsets) are similar if they are near each other in the thesaurus hierarchy_
+- `pathlen(c1, c2)` = 1 + number of edges in the shortest path in the hypernym graph between nodes c1 and c2
+- `simpath(c1, c2)` = 1 / `pathlen(c1, c2)`
+
 ## Functions
 * **`convert_tag:`** converts the tag given by `nltk.pos_tag` to a tag used by `wordnet.synsets`
 * **`doc_to_synsets:`** returns a list of synsets in document. This function first tokenize and part of speech tag the document using `nltk.word_tokenize` and `nltk.pos_tag`. Then it should find each tokens corresponding synset using `wn.synsets(token, wordnet_tag)`. The first synset match should be used. If there is no match, that token is skipped.
